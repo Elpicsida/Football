@@ -30,7 +30,7 @@
 <div class="container">
     <div *ngFor="let group of groups; let i = index" id={{group.Name}} class="container-fluid">
         <!-- <app-group [Name] = "group.Name" [Teams] = "group.Teams"></app-group> -->
-        <app-group (finals[0].HomeTeam) = "emitHomeTeamEvent($event)" (finals[0].AwayTeam) = "emitAwayTeamEvent($event)" [Group] = "group"></app-group>
+        <app-group [Group] = "group"></app-group>
       </div>
 <!-- <app-group *ngFor="let group of groups" [Name] = "group.Name" [Teams] = "group.Teams"></app-group> -->
 <!-- Seminfinals -->
@@ -40,67 +40,65 @@
   <tbody>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].FirstPlaceTeam" [AwayTeam] = "groups[0].SecondPlaceTeam"></match>
-        </td>
-      </tr>
-      <!-- <tr>
+        <match #M1 Name="1/8 Final" [HomeTeam] = "groups[0].FirstPlaceTeam" [AwayTeam] = "groups[0].SecondPlaceTeam"></match>
+      </td>
       <td rowspan="2">
-          <match Name="Quarterfinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+          <match #Q1 Name="Quarterfinals" [HomeTeam] = "M1.Winner" [AwayTeam] = "M2.Winner"></match>
         </td>
       <td rowspan="4">
-          <match Name="Semifinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+          <match #S1 Name="Semifinals" [HomeTeam] = "Q1.Winner" [AwayTeam] = "Q2.Winner"></match>
       </td>
       <td rowspan="8">
-          <match Name="Final"></match>
+          <match Name="Final" [HomeTeam] = "S1.Winner" [AwayTeam] = "S2.Winner"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M2 Name ="1/8 Final" [HomeTeam] = "groups[1].FirstPlaceTeam" [AwayTeam] = "groups[1].SecondPlaceTeam"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M3 Name="1/8 Final" [HomeTeam] = "groups[2].FirstPlaceTeam" [AwayTeam] = "groups[2].SecondPlaceTeam"></match>
       </td>
       <td rowspan="2">
-        <match Name="Quarterfinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #Q2 Name="Quarterfinals" [HomeTeam] = "M3.Winner" [AwayTeam] = "M4.Winner"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M4 Name="1/8 Final" [HomeTeam] = "groups[3].FirstPlaceTeam" [AwayTeam] = "groups[3].SecondPlaceTeam"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M5 Name="1/8 Final" [HomeTeam] = "groups[4].FirstPlaceTeam" [AwayTeam] = "groups[4].SecondPlaceTeam"></match>
       </td>
       <td rowspan="2">
-        <match Name="Quarterfinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #Q3 Name="Quarterfinals" [HomeTeam] = "M5.Winner" [AwayTeam] = "M6.Winner"></match>
       </td>
       <td rowspan="4">
-        <match Name="Semifinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #S2 Name="Semifinals" [HomeTeam] = "Q3.Winner" [AwayTeam] = "Q4.Winner"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M6 Name="1/8 Final" [HomeTeam] = "groups[5].FirstPlaceTeam" [AwayTeam] = "groups[5].SecondPlaceTeam"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final"  [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M7 Name="1/8 Final" [HomeTeam] = "groups[6].FirstPlaceTeam" [AwayTeam] = "groups[6].SecondPlaceTeam"></match>
       </td>
       <td rowspan="2">
-        <match Name="Quarterfinals" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #Q4 Name="Quarterfinals" [HomeTeam] = "M7.Winner" [AwayTeam] = "M8.Winner"></match>
       </td>
     </tr>
     <tr>
       <td>
-        <match Name="1/8 Final" [HomeTeam] = "groups[0].Teams[0]"></match>
+        <match #M8 Name="1/8 Final" [HomeTeam] = "groups[7].FirstPlaceTeam" [AwayTeam] = "groups[7].SecondPlaceTeam"></match>
       </td>
-    </tr> -->
+    </tr>
   </tbody>
 </table>
 </div>

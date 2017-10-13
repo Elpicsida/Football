@@ -1,19 +1,25 @@
 <div class="panel panel-primary">
-    <!-- <div class="panel-heading">{{Name}}</div> -->
-    <div class="panel-body" >
-      <div class="row">
-        <div class="col-md-4">
-        <img [src]="HomeTeam.FlagURL" width="40" height="20"> {{ HomeTeam.Name }} 
-      </div>
-      <div class="col-md-4">
-        <img [src]="AwayTeam.FlagURL" width=40 height="20"> {{ AwayTeam.Name }}
-      </div>
-      <!-- <div class="col-md-4" style="text-align: center">
-        <input style="width:20px" maxlength="2" [(ngModel)]="HomeGoals"> : <input style="width:20px" maxlength="2" [(ngModel)]="AwayGoals">
-      </div>
-      <div class="col-md-4">
-        <!-- <img [src]="AwayTeam.FlagURL" width=40 height="20">
-        {{ AwayTeam.Name }} -->
-      </div>
+  <div class="panel-heading">{{Name}}</div>
+  <div class="panel-body" >
+    <div class="row">
+      <div class="col-md-3">
+      <img [src]="HomeTeam.FlagURL" width=40 height="20"> {{ HomeTeam.Name }}
     </div>
+    <div class="col-md-6">
+      <input size="1" [(ngModel)]="HomeGoals" (blur)="setPoints()">
+      :
+      <input size="1" [(ngModel)]="AwayGoals" (blur)="setPoints()">
+    </div>
+    <div class="col-md-3">
+      <img [src]="AwayTeam.FlagURL" width=40 height="20">
+      {{ AwayTeam.Name }}
+    </div>
+    <div *ngIf="showPenaltyBlock()">
+        Penalties:
+        <input size="1" [(ngModel)]="HomePenaltyGoals" (blur)="checkWinner()">
+        :
+        <input size="1" [(ngModel)]="AwayPenaltyGoals" (blur)="checkWinner()">
+      </div>
+    <!-- <ng-template #elseBlock>Falsy condition</ng-template> -->
+  </div>
 </div>
