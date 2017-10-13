@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <!-- <div class="panel-heading">{{Name}}</div> -->
+    <div class="panel-body" >
+      <div class="row">
+        <div class="col-md-4">
+        <img [src]="HomeTeam.FlagURL" width="40" height="20"> {{ HomeTeam.Name }} 
+      </div>
+      <div class="col-md-4">
+        <img [src]="AwayTeam.FlagURL" width=40 height="20"> {{ AwayTeam.Name }}
+      </div>
+      <!-- <div class="col-md-4" style="text-align: center">
+        <input style="width:20px" maxlength="2" [(ngModel)]="HomeGoals"> : <input style="width:20px" maxlength="2" [(ngModel)]="AwayGoals">
+      </div>
+      <div class="col-md-4">
+        <!-- <img [src]="AwayTeam.FlagURL" width=40 height="20">
+        {{ AwayTeam.Name }} -->
+      </div>
+    </div>
+</div>

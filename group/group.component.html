@@ -1,0 +1,45 @@
+<div class="well" style="margin-top:100px">
+    <h2 class="text-center">Group {{Group.Name}}</h2>         
+    <table class="table table-striped" id="groupTable{{Group.Name}}">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th><abbr title="Matches played">M</abbr></th>
+          <th><abbr title="Matches won">W</abbr></th>
+          <th><abbr title="Draw in matches">D</abbr></th>
+          <th><abbr title="Matches lost">L</abbr></th>
+          <th><abbr title="Goals Against">G-</abbr></th>
+          <th><abbr title="Goals For">G+</abbr></th>
+          <th><abbr title="Goals Difference">G+/-</abbr></th>
+          <th><abbr title="Points">P</abbr></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor = "let team of Group.Teams" [group-team] = "team"></tr> -->
+        <tr *ngFor = "let team of Group.Teams" [group-team] = "team"></tr>
+      </tbody>
+    </table>
+    <div class="row">
+    <div class="col-md-4" *ngFor = "let match of Group.Matches">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Match</div>
+        <div class="panel-body" >
+          <div class="row">
+            <div class="col-md-3">
+            <img [src]="match.HomeTeam.FlagURL" width=40 height="20"> {{ match.HomeTeam.Name }}
+          </div>
+          <div class="col-md-6">
+            <input size="1" [(ngModel)]="match.HomeGoals" (blur)="setPoints()">
+            :
+            <input size="1" [(ngModel)]="match.AwayGoals" (blur)="setPoints()">
+          </div>
+          <div class="col-md-3">
+            <img [src]="match.AwayTeam.FlagURL" width=40 height="20">
+            {{ match.AwayTeam.Name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
