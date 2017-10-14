@@ -9,23 +9,15 @@ import { TeamComponent, Team } from '../team/team.component';
 
 export class MatchComponent implements OnInit {
 
-  @Input() HomeTeam: Team;
-  @Input() AwayTeam: Team;
+  @Input() HomeTeam : Team;
+  @Input() AwayTeam : Team;
   @Input() Name : string;
   HomeGoals? : number;
   AwayGoals? : number;
-  HomePenaltyGoals? :number;
-  AwayPenaltyGoals? :number;
+  HomePenaltyGoals? : number;
+  AwayPenaltyGoals? : number;
   Winner : Team;
-
   match : Match;
-
-  public IsPlayed() {
-  } 
-
-  constructor() { 
-    
-  }
 
   checkWinner() : void {
     if (this.HomePenaltyGoals != null && this.AwayPenaltyGoals != null) {
@@ -38,7 +30,7 @@ export class MatchComponent implements OnInit {
     this.Winner = new Team('Winner of ' + this.Name, "/assets/flags/Unknown.png", 1);
   }
 
-  showPenaltyBlock():boolean {
+  showPenaltyBlock() : boolean {
     if (this.HomeGoals != null && this.AwayGoals != null) {
       if (this.AwayGoals === this.HomeGoals) {
         return true;
@@ -68,7 +60,7 @@ export class Match {
 
    Winner : Team;
 
-   constructor(homeTeam : Team, awayTeam : Team, name? :string) {
+   constructor(homeTeam : Team, awayTeam : Team, name? : string) {
     this.Name = "Match";
     this.HomeTeam = homeTeam;
     this.AwayTeam = awayTeam;

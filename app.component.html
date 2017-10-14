@@ -1,6 +1,5 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-        
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
               <span class="icon-bar"></span>
@@ -14,26 +13,16 @@
             <ul class="nav navbar-nav">
               <li *ngFor="let group of groups"><a href="#{{group.Name}}">Group {{group.Name}}</a></li>
               <li><a href="#SecondRound">Second Round</a></li>
-              <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#section41">Section 4-1</a></li>
-                  <li><a href="#section42">Section 4-2</a></li>
-                </ul>
-              </li> -->
             </ul>
           </div>
         </div>
       </div>
-    </nav>    
-<!-- <img src = '/assets/logo/WorldCup.png' /> -->
+    </nav>
 
 <div class="container">
     <div *ngFor="let group of groups; let i = index" id={{group.Name}} class="container-fluid">
-        <!-- <app-group [Name] = "group.Name" [Teams] = "group.Teams"></app-group> -->
-        <app-group [Group] = "group"></app-group>
-      </div>
-<!-- <app-group *ngFor="let group of groups" [Name] = "group.Name" [Teams] = "group.Teams"></app-group> -->
-<!-- Seminfinals -->
+      <app-group [Group] = "group"></app-group>
+    </div>
 </div>
 <div class="well" style="margin-top:100px" >
 <table id ="SecondRound" width="100%">

@@ -12,13 +12,7 @@ export class GroupTeamComponent implements OnInit {
   @Input("group-team") 
   GroupTeam : GroupTeam;
 
-  constructor() {
-    //this.GroupTeam = team;
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
 
 export class GroupTeam {
@@ -43,5 +37,6 @@ export class GroupTeam {
     this.Won = 0;
     this.Draw = 0;
     this.Lost = 0;
+    this.Points = 0;
   }
 }

@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { GroupTeamComponent, GroupTeam } from './group-team/group-team.component';
 import { TeamComponent, Team } from './team/team.component';
 import { GroupComponent, Group } from './group/group.component';
-
-// Import the DataService
 import { DataService } from './data.service';
 import { Match } from './match/match.component';
 
@@ -33,33 +31,13 @@ const Group8 : Group = new Group('H', [t5, t6,t7,t8]);
 })
 
 export class AppComponent {
-  
-  // Define a users property to hold our user data
+
   groups: Group[];
   finals: Match[];
 
-  // Create an instance of the DataService through dependency injection
   constructor(private _dataService: DataService) {
     this.groups = [Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group8];
     this.finals = [];
     this.finals[0] = new Match(this.groups[0].Teams[2].Team,this.groups[0].Teams[3].Team);
-    //this.finals[0].AwayTeam = this.groups[0].Teams[2].Team;
-    //this.finals[0].HomeTeam = this.groups[0].Teams[3].Team;
-    //this.finals = new Match[8];
-    //this.finals = [new Match(Group1.Teams[0].Team, Group2.Teams[1].Team)];
-    // Access the Data Service's getUsers() method we defined
-  //   this._dataService.getTeams()
-  //       .subscribe(res => this.teams = res);
-
-  //       this.Name = "Group A";
-  //       this.Matches = [
-  //         { HomeTeam : this.Teams[0].Team, AwayTeam: this.Teams[2].Team, IsPlayed : false},
-  //         { HomeTeam : this.Teams[1].Team, AwayTeam: this.Teams[3].Team, IsPlayed : false},
-  //         { HomeTeam : this.Teams[0].Team, AwayTeam: this.Teams[3].Team, IsPlayed : false},
-  //         { HomeTeam : this.Teams[1].Team, AwayTeam: this.Teams[2].Team, IsPlayed : false},
-  //         { HomeTeam : this.Teams[0].Team, AwayTeam: this.Teams[1].Team, IsPlayed : false},
-  //         { HomeTeam : this.Teams[2].Team, AwayTeam: this.Teams[3].Team, IsPlayed : false}
-  //       ];
-  // }
   }
 }

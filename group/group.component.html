@@ -15,8 +15,8 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor = "let team of Group.Teams" [group-team] = "team"></tr> -->
-        <tr *ngFor = "let team of Group.Teams" [group-team] = "team"></tr>
+        <tr [ngClass]="(this.AllMatchesPlayed)? (i > 1 ? 'danger':'success'):''" 
+          *ngFor = "let team of Group.Teams; let i = index" [group-team] = "team"></tr>
       </tbody>
     </table>
     <div class="row">
@@ -25,17 +25,17 @@
         <div class="panel-heading">Match</div>
         <div class="panel-body" >
           <div class="row">
-            <div class="col-md-3">
-            <img [src]="match.HomeTeam.FlagURL" width=40 height="20"> {{ match.HomeTeam.Name }}
+            <div class="col-md-4">
+            <img [src]="match.HomeTeam.FlagURL"> {{ match.HomeTeam.Name }}
           </div>
-          <div class="col-md-6">
-            <input size="1" [(ngModel)]="match.HomeGoals" (blur)="setPoints()">
-            :
-            <input size="1" [(ngModel)]="match.AwayGoals" (blur)="setPoints()">
+          <div class="col-md-4">
+            <div align="center">
+              <input maxlength="2" [(ngModel)]="match.HomeGoals" (blur)="setPoints()">:<input maxlength="2" [(ngModel)]="match.AwayGoals" (blur)="setPoints()">
+            </div>
           </div>
-          <div class="col-md-3">
-            <img [src]="match.AwayTeam.FlagURL" width=40 height="20">
-            {{ match.AwayTeam.Name }}
+          <div class="col-md-4">
+            <img [src]="match.AwayTeam.FlagURL" style="float:right">
+            <p style="float:right">{{ match.AwayTeam.Name }}</p>
           </div>
         </div>
       </div>

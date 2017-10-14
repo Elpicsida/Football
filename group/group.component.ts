@@ -12,6 +12,7 @@ import { TeamComponent, Team } from '../team/team.component';
 export class GroupComponent implements OnInit {
 
   @Input() Group : Group;
+  AllMatchesPlayed : boolean;
   
   constructor() { 
   }
@@ -48,7 +49,6 @@ export class GroupComponent implements OnInit {
       var goalsHome = +this.Group.Matches[i].HomeGoals;
 
       if (!Number.isNaN(goalsAway) && !Number.isNaN(goalsHome)) {
-     // && this.Group.Matches[i].AwayGoals !== '' && this.Group.Matches[i].HomeGoals !== ''){
         matchesPlayed++;
         var homeTeam = this.Group.Teams.filter(x => x.Team.Name == this.Group.Matches[i].HomeTeam.Name)[0];
         var awayTeam = this.Group.Teams.filter(x => x.Team.Name == this.Group.Matches[i].AwayTeam.Name)[0];
@@ -98,33 +98,15 @@ export class GroupComponent implements OnInit {
           } 
         }
       }});
-    this.resetRowsColor();
     
     if (matchesPlayed == 6) {
-      this.addColorToRows();
+      this.AllMatchesPlayed = true;
       this.Group.FirstPlaceTeam  = this.Group.Teams[0].Team;
       this.Group.SecondPlaceTeam = this.Group.Teams[1].Team;
     }
-  }
-
-  private addColorToRows() {    
-    var table : any = document.getElementById('groupTable'+ this.Group.Name);
-    table.rows[1].classList.add("success");
-    table.rows[2].classList.add("success");
-    table.rows[3].classList.add("danger");
-    table.rows[4].classList.add("danger");
-  }
-
-  private resetRowsColor() {
-    var table : any = document.getElementById('groupTable'+ this.Group.Name);
-    table.rows[1].classList.remove("success");
-    table.rows[2].classList.remove("success");
-    table.rows[3].classList.remove("danger");
-    table.rows[4].classList.remove("danger");
-    table.rows[1].classList.remove("danger");
-    table.rows[2].classList.remove("danger");
-    table.rows[3].classList.remove("success");
-    table.rows[4].classList.remove("success");
+    else {
+      this.AllMatchesPlayed = false;
+    }
   }
 }
 
